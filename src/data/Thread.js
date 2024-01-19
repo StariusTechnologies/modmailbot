@@ -340,6 +340,7 @@ class Thread {
 
     // Call any registered beforeNewMessageReceivedHooks
     hookResult = await callBeforeNewMessageReceivedHooks({
+      client: bot,
       user,
       opts,
       message: opts.message

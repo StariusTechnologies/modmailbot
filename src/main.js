@@ -1,5 +1,4 @@
 const Eris = require("eris");
-const path = require("path");
 
 const config = require("./cfg");
 const bot = require("./bot");
@@ -8,7 +7,6 @@ const {messageQueue} = require("./queue");
 const utils = require("./utils");
 const { createCommandManager } = require("./commands");
 const { getPluginAPI, installPlugins, loadPlugins } = require("./plugins");
-const { callBeforeNewThreadHooks } = require("./hooks/beforeNewThread");
 
 const blocked = require("./data/blocked");
 const threads = require("./data/threads");

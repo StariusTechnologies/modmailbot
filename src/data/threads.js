@@ -174,6 +174,7 @@ async function createNewThreadForUser(user, opts = {}) {
     if (! ignoreHooks) {
       // Call any registered beforeNewThreadHooks
       hookResult = await callBeforeNewThreadHooks({
+        client: bot,
         user,
         opts,
         message: opts.message
