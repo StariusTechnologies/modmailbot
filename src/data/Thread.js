@@ -1080,7 +1080,11 @@ class Thread {
     const dmChannel = await bot.getDMChannel(this.user_id);
     if (! dmChannel) return;
 
-    const lastMessageId = (await this.getLatestThreadMessage()).dm_message_id;
+    const latestThreadMessage = await this.getLatestThreadMessage();
+
+    if (!latestThreadMessage) return;
+
+    const lastMessageId = latestThreadMessage.dm_message_id;
     let messages = (await dmChannel.getMessages(50, null, lastMessageId, null))
       .reverse() // We reverse the array to send the messages in the proper order - Discord returns them newest to oldest
       .filter(msg => msg.author.id === this.user_id); // Make sure we're not recovering bot or system messages
